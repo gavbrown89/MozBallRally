@@ -23,5 +23,5 @@
     <!-- Holder.js for placeholder images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
     <!-- Custom js -->
-    <script src="validate.js"></script>
+    <script src="js/validate.js"></script>
 </footer>

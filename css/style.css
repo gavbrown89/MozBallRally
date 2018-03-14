@@ -24,13 +24,15 @@ h2, p {
 .navbar a:hover {
     color: #ffb500!important;
 }
-.login {
+.login_submit {
+    border: none;
+    background: none;
     color: #fff;
     font-size: 13px;
 }
-.login:hover {
+.login_submit:hover {
+    cursor: pointer;
     color: #ffb500;
-    text-decoration: none;
 }
 /** Welcome message styles */
 .welcome_message {
@@ -102,6 +104,40 @@ h2, p {
     color: #ffb500;
     text-decoration: none;
     border-bottom: 5px solid #ffb500;
+}
+/*
+* Registration page styles
+*/
+.red {
+    color: red;
+}
+.register_form input {
+    padding: 10px 0px 10px 0px;
+    width: 500px;
+}
+form {
+    text-align: left!important;
+}
+dt {
+    text-align: left;
+}
+.reg_submit {
+    width: 500px;
+    background-color: #2b2b2b;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.reg_submit:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: #ffb500;
+    text-decoration: none;
+    outline-width: thick;
+    outline-color: #ffb500;
+    outline-style: solid;
 }
 
 /* JS Validation text style */

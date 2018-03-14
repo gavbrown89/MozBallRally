@@ -1,6 +1,6 @@
 <?php include('includes/head.inc.php'); ?>
 <body>
-<?php include('includes/nav.inc.php'); ?>
+<?php include('nav.inc.php'); ?>
 <div class="container">
 
     <div class="starter-template">

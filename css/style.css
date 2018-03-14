@@ -16,6 +16,7 @@ h2, p {
 **/
 .navbar {
     background-color: #2b2b2b!important;
+    color: #fff;
 }
 .navbar-brand img {
     width: 30px;
@@ -36,6 +37,11 @@ h2, p {
     margin: 30px 0 0 30px;
     font-family: tahoma;
     font-weight: bold;
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 

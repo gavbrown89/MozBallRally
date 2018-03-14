@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'includes/session.inc.php';
 define('DB_HOST', 'localhost');
 define('DB_USER', 'glbrown2');
 define('DB_PASSWORD', 'okxwfvb');

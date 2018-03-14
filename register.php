@@ -1,13 +1,14 @@
 <?php include('includes/head.inc.php'); ?>
 <body>
 <?php include('nav.inc.php'); ?>
-<section class="header_background" style="background-image: url('img/header_img.jpg');">
-    <section class="header_title">
-        <img src="img/signup_vip.png" alt="Moz ball rally logo">
-    </section>
-</section>
+<!--<section class="header_background" style="background-image: url('img/header_img.jpg');">-->
+<!--    <section class="header_title">-->
+<!--        <img src="img/signup_vip.png" alt="Moz ball rally logo">-->
+<!--    </section>-->
+<!--</section>-->
 <div class="container">
-        <h1>Mozball VIP registration</h1>
+        <h1 class="member_title">Mozball VIP registration</h1>
+        <p>Please fill in the form below with your details to get access to our VIP area</p>
         <p class="lead">Register</p>
         <form class="register_form" action="includes/signup.inc.php" method="post">
             <dt><label for="user_name">Username<span class="red"> *</span></label></dt>
@@ -23,11 +24,11 @@
             <dd><input type="email" id="email" name="user_email" onblur="validateNonEmpty(this,document.getElementById('email_help'))" required /></dd>
             <span id="email_help" class="help"></span>
             <dt><label for="confirm_email">Confirm email<span class="red"> *</span></label></dt>
-            <dd><input type="email" id="confirm_email" placeholder="Confirm Email" onblur="validateNonEmpty(this,document.getElementById('confirm_email_help'))" required /></dd>
+            <dd><input type="email" id="confirm_email" name="confirm_email" onblur="validateNonEmpty(this,document.getElementById('confirm_email_help'))" required /></dd>
             <span id="confirm_email_help" class="help"></span>
             <dt><label for="password">Password<span class="red"> *</span></label></dt>
             <dd><input type="password" id="password" name="user_pass" onblur="validateNonEmpty(this,document.getElementById('password_help'))" required /></dd>
-            <span id="password_help" class="help"></span>
+            <span id="password_help" class="help"></span><br>
             <button type="submit" name="submit" class="reg_submit">Register</button>
         </form>
 

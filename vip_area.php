@@ -8,20 +8,22 @@ include('nav.inc.php');
             <img src="img/logo_vip.png" alt="Moz ball rally logo">
         </section>
     </section>
-
+<section class="container">
 <?php // Make sure the user is logged in before going any further.
 if (!isset($_SESSION['u_name'])) {
 
-    echo '<h2>MEMBERS ONLY</h2>';
+    echo '<h1 class="member_title">MEMBERS ONLY</h1>';
 
-    echo '<p class="login">Please <a href="login.php">log in</a> to access this page.</p>';
+    echo '<p class="login">Please login to access this page. If you are not a member then please register <a href="register.php">here</a> </p>';
     exit();
 }
 else {
-    echo('<p class="login">You are logged in as ' . $_SESSION['u_name'] . '. <a href="logout.php">Log out</a>.</p>');
+    echo ('<h1 class="member_title">Members VIP Area</h1>');
+    echo('<h2 class="login">Welcome, ' . $_SESSION['u_name'] . '.</h2>');
     echo('<p>You are more than welcome to be here, as this site is secured by sessions and cookies<p> 
         <p>Even if you accidentally close your browser, the cookie should let you back in until you <strong>logout</strong></p>');
 }
 
 ?>
-<?php include("includes/footer.php"); ?>
+</section>
+<?php include('includes/footer.inc.php'); ?>

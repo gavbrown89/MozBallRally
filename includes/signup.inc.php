@@ -14,12 +14,12 @@ if (isset($_POST['submit'])) { /** a for loop to check if the submit button exis
      * Create the variables for each input field on the registration form
      *
      */
-    $user_name = $_POST['user_name'];
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $email = $_POST['user_email'];
-    $confirm_email = $_POST['confirm_email'];
-    $password = $_POST['user_pass'];
+    $user_name = mysqli_real_escape_string($dbc, trim($_POST['user_name']));
+    $first_name = mysqli_real_escape_string($dbc, trim($_POST['first_name']));
+    $last_name = mysqli_real_escape_string($dbc, trim($_POST['last_name']));
+    $email = mysqli_real_escape_string($dbc, trim($_POST['user_email']));
+    $confirm_email = mysqli_real_escape_string($dbc, trim($_POST['confirm_email']));
+    $password = mysqli_real_escape_string($dbc, trim($_POST['user_pass']));
 
     /**
      *

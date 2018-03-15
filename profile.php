@@ -5,7 +5,9 @@ include('nav.inc.php');
 ?>
 
 <section class="container">
-    <h1 class="member_title">Profile</h1>
+    <img src="img/profile.png" class="profile_img"  alt="Profile picture">
+    <h1 class="member_title">Your Profile</h1>
+    <section class="form_container">
     <?php
     require_once('includes/dbc.inc.php');
 
@@ -53,7 +55,7 @@ include('nav.inc.php');
 
     if (isset($_GET['user_id']) || ($_SESSION['$user_name'] == $_GET['user_name']))
     {
-        echo '<p>Would you like to <a href="edit_profile.php">edit your profile</a>?</p>';
+        echo '<br><p class="center">Would you like to <a href="edit_profile.php">edit your profile</a>?</p>';
     }
     // End of check for a single row of user results
     else
@@ -63,5 +65,6 @@ include('nav.inc.php');
     mysqli_close($dbc);
 
     ?>
+    </section>
 </section>
     <?php include("includes/footer.inc.php"); ?>

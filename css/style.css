@@ -175,6 +175,11 @@ dt {
 * Profile page styling
 *
 */
+.profile_img {
+    margin-top: 30px;
+    border-radius: 50%;
+}
+.center {text-align: center;}
 caption {visibility:hidden;}
 
 table, tr, td , th{
@@ -186,6 +191,8 @@ table, tr, td , th{
 table {
     border-collapse: collapse;
     background-color: #000000;
+    text-align: center;
+    margin:0 auto;
 }
 
 th{background: #000;

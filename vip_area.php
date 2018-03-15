@@ -20,8 +20,8 @@ if (!isset($_SESSION['u_name'])) {
 else {
     echo ('<h1 class="member_title">Members VIP Area</h1>');
     echo('<h2 class="login">Welcome, ' . $_SESSION['u_name'] . '.</h2>');
-    echo('<p>You are more than welcome to be here, as this site is secured by sessions and cookies<p> 
-        <p>Even if you accidentally close your browser, the cookie should let you back in until you <strong>logout</strong></p>');
+    echo('<p>Only you can see this area ' . $_SESSION['f_name'] . ' . <p> 
+        <p>If you would like to view / amend you profile then click <a href="profile.php">here</a></p>');
 }
 
 ?>

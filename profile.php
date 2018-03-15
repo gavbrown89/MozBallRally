@@ -1,13 +1,13 @@
 <?php
-require_once("includes/session.inc.php"); // Start the session
-include("includes/head.inc.php");
-include("nav.inc.php");
+require_once('includes/session.inc.php');
+include('includes/head.inc.php');
+include('nav.inc.php');
 ?>
 
 <section class="container">
-
+    <h1 class="member_title">Profile</h1>
     <?php
-    require_once("includes/dbc.inc.php");
+    require_once('includes/dbc.inc.php');
 
     // Connect to the database
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -15,7 +15,7 @@ include("nav.inc.php");
     // Grab the profile data from the database
 
     if (!isset($_GET['user_id'])) {
-        $query = "SELECT user_name,  first_name, last_name, user_email FROM login_system WHERE user_name = '". $_SESSION['user_name'] . "'";
+        $query = "SELECT user_name,  first_name, last_name, user_email FROM login_system WHERE user_name = '". $_SESSION['u_name'] . "'";
     }
     else {
         $query = "SELECT user_name,  first_name, last_name, user_email FROM login_system WHERE user_name = '" . $_GET['user_name'] . "'";
@@ -58,7 +58,7 @@ include("nav.inc.php");
     // End of check for a single row of user results
     else
     {
-        echo '<p class="error" >There was a problem accessing your profile minion ' . $_SESSION['user_name'] .  '.</p>';
+        echo '<p class="error" >There was a problem accessing your profile ' . $_SESSION['u_name'] .  '.</p>';
     }
     mysqli_close($dbc);
 

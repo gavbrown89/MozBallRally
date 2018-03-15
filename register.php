@@ -6,8 +6,9 @@
 <!--        <img src="img/signup_vip.png" alt="Moz ball rally logo">-->
 <!--    </section>-->
 <!--</section>-->
-<div class="container">
-        <h1 class="member_title">Mozball VIP registration</h1>
+<section class="container">
+        <h1 class="member_title">Mozball VIP Registration</h1>
+    <section class="form_container">
         <p>Please fill in the form below with your details to get access to our VIP area</p>
         <p class="lead">Register</p>
         <form class="register_form" action="includes/signup.inc.php" method="post">
@@ -31,11 +32,10 @@
             <span id="password_help" class="help"></span><br>
             <button type="submit" name="submit" class="reg_submit">Register</button>
         </form>
+    </section>
 
 
-
-</div><!-- /.container -->
+</section><!-- /.container -->
 </body>
 
 <?php include('includes/footer.inc.php'); ?>
-</html>

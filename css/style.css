@@ -121,17 +121,19 @@ input:-webkit-autofill {
 .red {
     color: red;
 }
+.form_container {
+    width: 550px;
+    margin:0 auto;
+}
 .register_form input {
     padding: 10px 5px 10px 5px;
     width: 500px;
     border: 0.5px solid #333;
     background-color: #fff;
 }
-form {
-    text-align: left!important;
-}
 dt {
     text-align: left;
+    margin-left: 25px;
 }
 .reg_submit {
     width: 500px;
@@ -167,6 +169,43 @@ dt {
 .login {
     padding-bottom: 50px;
 }
+
+/*
+*
+* Profile page styling
+*
+*/
+caption {visibility:hidden;}
+
+table, tr, td , th{
+    border: 1px solid #000000;
+    padding: 5px;
+    margin: 20px 0;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: #000000;
+}
+
+th{background: #000;
+    color:#fff;}
+
+tr {
+}
+
+td {
+    background:#FFFFFF;
+}
+
+table form {
+    width:60px;
+    border:none;}
+table th {
+    background:#000;
+    color: #fff;
+}
+
 /**
 *
 * Footer styles

@@ -15,7 +15,6 @@ include('nav.inc.php');
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
     // Grab the profile data from the database
-
     if (!isset($_GET['user_id'])) {
         $query = "SELECT user_name,  first_name, last_name, user_email FROM login_system WHERE user_name = '". $_SESSION['u_name'] . "'";
     }
@@ -49,9 +48,6 @@ include('nav.inc.php');
         }
         echo '</table>';
     }
-
-    //echo $_SESSION['minion_id'];
-    //echo $_GET['minion_id'];
 
     if (isset($_GET['user_id']) || ($_SESSION['$user_name'] == $_GET['user_name']))
     {

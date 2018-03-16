@@ -35,7 +35,6 @@ if (isset($_POST['submit'])) {
 
             // Confirm success with the user
             echo '<p>Your profile has been successfully updated. Would you like to <a href="profile.php">view your profile</a>?</p>';
-            echo $query;
 
             mysqli_close($dbc);
             exit();
@@ -69,20 +68,22 @@ mysqli_close($dbc);
 
     <section class="container">
         <img src="img/profile.png" class="profile_img"  alt="Profile picture">
-        <h1 class="member_title">Edit Your Profile</h1>
-            <form enctype="multipart/form-data" method="post">
+        <h1 class="member_title">Your Profile</h1>
+    <section class="form_container">
+            <form class="register_form" enctype="multipart/form-data" method="post">
                 <fieldset>
-                    <legend>Personal Information</legend>
-                    <label for="user_name">User name:</label>
-                    <input type="text" id="user_name" name="user_name" value="<?php if (!empty($user_name)) echo $user_name; ?>" /><br />
-                    <label for="first_name">First name:</label>
-                    <input type="text" id="first_name" name="first_name" value="<?php if (!empty($first_name)) echo $first_name; ?>" /><br />
-                    <label for="last_name">Last Name:</label>
-                    <input type="text" id="last_name" name="last_name" value="<?php if (!empty($last_name)) echo $last_name; ?>" /><br />
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="<?php if (!empty($email)) echo $email; ?>" /><br />
+                    <legend>Edit your details</legend>
+                    <dt><label for="user_name">User name:</label></dt>
+                    <dd><input type="text" id="user_name" name="user_name" value="<?php if (!empty($user_name)) echo $user_name; ?>" /></dd><br />
+                    <dt><label for="first_name">First name:</label></dt>
+                    <dd><input type="text" id="first_name" name="first_name" value="<?php if (!empty($first_name)) echo $first_name; ?>" /></dd><br />
+                    <dt><label for="last_name">Last Name:</label></dt>
+                    <dd><input type="text" id="last_name" name="last_name" value="<?php if (!empty($last_name)) echo $last_name; ?>" /></dd><br />
+                    <dt><label for="email">Email:</label></dt>
+                    <dd><input type="email" id="email" name="email" value="<?php if (!empty($email)) echo $email; ?>" /></dd><br />
                 </fieldset>
-                <input type="submit" value="Save Profile" name="submit" />
+                <button type="submit" name="submit" class="reg_submit">Update Profile</button>
             </form>
+    </section>
         </section>
 <?php include("includes/footer.inc.php"); ?>

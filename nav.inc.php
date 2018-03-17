@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <img src="img/logo-white.png" alt="Moz ball rally logo" style="width:50px">&nbsp;
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="vip_area.php">VIP Area</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="register.php">Create an account</a>
+            </li>
+        </ul>
+        <?php
+        if (isset($_SESSION['u_name'])) {
+            echo "<img src=\"img/login_avatar.png\" class=\"avatar\">" . " " . " &nbsp; " . " " . "{$_SESSION['u_name']}";
+        }
+        ?> &nbsp;&nbsp;
+        <?php
+            if (isset($_SESSION['u_name'])) {
+                echo '<form action="includes/logout.inc.php" method="post">
+                <button type="submit" name="submit" class="login_submit"><i class=\'fa fa-sign-out fa-lg\' aria-hidden=\'true\' style=\'color:#ffb500;\'></i> Logout</button>
+                </form>';
+            } else {
+               echo '<form class="form-inline my-2 my-lg-0" action="login.php" method="post">
+                    <input type="text" name="user_id" placeholder="Username / Email"> &nbsp;
+                     <input type="password" name="password" placeholder="Password">
+                     <button type="submit" name="submit" class="login_submit"><i class="fa fa-sign-in fa-lg" aria-hidden="true" style="color:#ffb500;"></i> Login</button>
+                    </form>';
+            }
+        ?>
+
+        <!--          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+        <!--          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    </div>
+</nav>

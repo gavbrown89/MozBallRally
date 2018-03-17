@@ -1,12 +1,12 @@
 <?php
-include 'includes/session.inc.php';
+include 'session.inc.php';
 define('DB_HOST', 'localhost');
 define('DB_USER', 'glbrown2');
 define('DB_PASSWORD', 'okxwfvb');
 define('DB_NAME', 'glbrown2');
 $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 if (isset($_POST['submit'])) { /** a for loop to check if the submit button exists */
-    include 'includes/db.php'; /** Include the database connection file */
+    include ('dbc.inc.php'); /** Include the database connection file */
 
 
     /**
@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) { /** a for loop to check if the submit button exis
      *
      */
     /** Check for empty fields */
-    if (empty($user_name) || empty($first_name) || empty($last_name) || empty($email) || empty($password)) { /** check if the first field is empty or the next field and repeat */
+    if (empty($user_name) || empty($first_name) || empty($last_name) || empty($email) || empty($confirm_email) || empty($password)) { /** check if the first field is empty or the next field and repeat */
         header("Location: ../register.php?register=empty"); /** If one or more fields are empty then send the user back to the registration page and inlcude error message in the url */
         exit(); /** Stop this script from running */
     } else {
@@ -56,7 +56,6 @@ if (isset($_POST['submit'])) { /** a for loop to check if the submit button exis
                     $resultCheck = mysqli_num_rows($result);
 
                     if ($resultCheck > 0) { /** Check if the username is greater than 0 in the database, if it is then show an error message */
-
                         header("Location: ../register.php?register=usernametaken"); /** If the username already exists then send the user back to the registration page and inlcude error message in the url */
                         exit(); /** Stop this script from running */
                     } else {

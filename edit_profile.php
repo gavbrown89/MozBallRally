@@ -34,8 +34,8 @@ if (isset($_POST['submit'])) {
             mysqli_query($dbc, $query);
 
             // Confirm success with the user
-            echo '<p>Your profile has been successfully updated. Would you like to <a href="profile.php">view your profile</a>?</p>';
-
+            echo '<p class="success">Your profile has been successfully updated.</p>';
+            echo '<p class="center"> Would you like to <a href="profile.php">view your profile</a>?</p>';
             mysqli_close($dbc);
             exit();
         }

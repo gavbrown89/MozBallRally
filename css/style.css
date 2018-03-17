@@ -118,6 +118,26 @@ input:-webkit-autofill {
 /*
 * Registration page styles
 */
+.errors {
+    margin-top: 10px;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.34);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid red;
+    font-weight: bold;
+    text-align: center;
+}
+.success {
+    margin-top: 10px;
+    color: green;
+    background-color: rgba(0, 255, 0, 0.36);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid green;
+    font-weight: bold;
+    text-align: center;
+}
 .red {
     color: red;
 }
@@ -158,6 +178,8 @@ dt {
 .help{
     color: red;
     font-weight: bold;
+    text-align: left;
+    margin-left: 25px;
 }
 /*
 * Members area styles

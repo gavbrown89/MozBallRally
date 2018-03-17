@@ -1,15 +1,12 @@
+<?php include ('includes/session.inc.php'); ?>
 <?php include('includes/head.inc.php'); ?>
 <body>
 <?php include('nav.inc.php'); ?>
-<!--<section class="header_background" style="background-image: url('img/header_img.jpg');">-->
-<!--    <section class="header_title">-->
-<!--        <img src="img/signup_vip.png" alt="Moz ball rally logo">-->
-<!--    </section>-->
-<!--</section>-->
+
 <section class="container">
         <h1 class="member_title">Mozball VIP Registration</h1>
-    <section class="form_container">
-        <p>Please fill in the form below with your details to get access to our VIP area</p>
+    <div class="form_container">
+        <p>Please fill in all the required fields below to gain access to our VIP area</p>
         <p class="lead">Register</p>
         <form class="register_form" action="includes/signup.inc.php" method="post">
             <dt><label for="user_name">Username<span class="red"> *</span></label></dt>
@@ -32,9 +29,29 @@
             <span id="password_help" class="help"></span><br>
             <button type="submit" name="submit" class="reg_submit">Register</button>
         </form>
-    </section>
+        <?php
+        if (!isset($_GET['register'])) {
+            exit();
+        } else {
+            $regCheck = $_GET['register'];
 
+            if ($regCheck == "empty") {
+                echo "<p class='errors'>You did not fill in all the fields!</p>";
+                exit();
+            } elseif ($regCheck == "invalidemail") {
+                echo "<p class='errors'>Invalid email address!</p>";
+                exit();
+            } elseif ($regCheck == "usernametaken") {
+                echo "<p class='errors'>Username has already been taken!</p>";
+                exit();
+            } elseif ($regCheck == "success") {
+                echo "<p class='success'>Account created!</p>";
+                exit();
+            }
+        }
 
+        ?>
+    </div>
 </section><!-- /.container -->
 </body>
 

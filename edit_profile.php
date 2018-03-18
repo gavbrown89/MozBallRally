@@ -4,7 +4,7 @@ include('includes/head.inc.php');
 include('includes/nav.inc.php');
 require_once('includes/dbc.inc.php');
 
-// Make sure the user is logged in before going any further.
+/** Make sure the user is logged in before going any further. */
 if (!isset($_SESSION['u_name'])) {
     echo '<p class="login">Please <a href="login.php">log in </a> to access this page.</p>';
     exit();
@@ -16,21 +16,27 @@ else {
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if (isset($_POST['submit'])) {
-    // Grab the profile data from the POST
+    /**
+     * Grab the profile data from the POST
+     * /** Create variables to store the first name, last name & email inputs using the sql escape string for security to stop users inputting malicious data
+     */
     $first_name = mysqli_real_escape_string($dbc, trim($_POST['first_name']));
     $last_name = mysqli_real_escape_string($dbc, trim($_POST['last_name']));
     $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
     $error = false;
 
 
-    // Update the users data in the database
+    /** Update the users data in the database */
     if (!$error) {
-        if (!empty($first_name) && !empty($last_name) && !empty($email)) {
+        if (!empty($first_name) && !empty($last_name) && !empty($email)) { /** Check for empty input fields */
+        /**
+         * Update the database details with the new inputted ones
+         */
             $query = "UPDATE login_system SET first_name = '$first_name', last_name = '$last_name', " .
                 " user_email = '$email' WHERE user_name = '" . $_SESSION['u_name'] . "'";
             mysqli_query($dbc, $query);
 
-            // Confirm success with the user
+           /** Confirm success with the user */
             echo '<p class="success">Your profile has been successfully updated.</p>';
             echo '<p class="center"> Would you like to <a href="profile.php">view your profile</a>?</p>';
             mysqli_close($dbc);
@@ -40,9 +46,9 @@ if (isset($_POST['submit'])) {
             echo '<p class="error">You must enter all of the profile data</p>';
         }
     }
-} // End of check for form submission
+} /** End of check for form submission */
 else {
-    // Grab the user profile data from the database
+    /** Grab the user profile data from the database */
     $query = "SELECT first_name, last_name, user_email FROM login_system WHERE user_name= '" .                 $_SESSION['u_name'] . "'";
     $data = mysqli_query($dbc, $query);
     $row = mysqli_fetch_array($data);

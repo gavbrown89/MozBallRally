@@ -1,4 +1,5 @@
  <?php
+ require_once('includes/session.inc.php'); /** Include the session start file */
  include('includes/head.inc.php');
  include('includes/nav.inc.php');
  ?>
@@ -47,4 +48,24 @@
   </body>
 
     <?php include('includes/footer.inc.php'); ?>
-    </html>
+
+ <?php
+ /*
+ *
+  * Display errors messages based on the errors set in the URL by getting the login = "errors message"
+  * Using JavaScript inside the php echo scripts I can set an alert box to display the relevant error message
+ */
+ if (!isset($_GET['login'])) {
+     exit();
+ } else {
+     $regCheck = $_GET['login'];
+
+     if ($regCheck == "empty") {
+         echo '<script type="text/javascript"> window.onload = function() {alert("Please fill in both fields!")};</script>';
+         exit();
+     } elseif ($regCheck == "error") {
+         echo '<script type="text/javascript"> window.onload = function() {alert("Incorrect username or password!")};</script>';
+         exit();
+     }
+ }
+ ?>

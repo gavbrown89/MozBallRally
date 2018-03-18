@@ -18,14 +18,16 @@
         </ul>
         <?php
         if (isset($_SESSION['u_name'])) {
-            echo ">" . " " . " &nbsp; " . " " . "{$_SESSION['u_name']}";
+            echo "<img src=\"img/login_avatar.png\" class=\"avatar\">" . " " . " &nbsp; " . " " . "{$_SESSION['u_name']}";
         }
         ?> &nbsp;&nbsp;
         <?php
             if (isset($_SESSION['u_name'])) {
-                echo ';
+                echo '<form action="includes/logout.inc.php" method="post">
+                <button type="submit" name="submit" class="login_submit"><i class=\'fa fa-sign-out fa-lg\' aria-hidden=\'true\' style=\'color:#ffb500;\'></i> Logout</button>
+                </form>';
             } else {
-               echo '<form class="form-inline my-2 my-lg-0" action="login.php" method="post">
+               echo '<form class="form-inline my-2 my-lg-0" action="includes/login.inc.php" method="post">
                     <input type="text" name="user_id" placeholder="Username / Email"> &nbsp;
                      <input type="password" name="password" placeholder="Password">
                      <button type="submit" name="submit" class="login_submit"><i class="fa fa-sign-in fa-lg" aria-hidden="true" style="color:#ffb500;"></i> Login</button>

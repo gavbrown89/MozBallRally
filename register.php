@@ -32,7 +32,7 @@ include('includes/nav.inc.php');
         </form>
     </div>
 </section><!-- /.container -->
-
+<?php include('includes/footer.inc.php'); ?>
 <?php
 /*
 *
@@ -44,24 +44,33 @@ if (!isset($_GET['register'])) {
 } else {
     $regCheck = $_GET['register'];
 
-    if ($regCheck == "empty") {
-        echo "<p class='errors'>You did not fill in all the fields!</p>";
-        echo '<script type="text/javascript"> window.onload = function() {alert("You did not fill in all the fields!")};</script>';
-        exit();
-    } elseif ($regCheck == "invalidemail") {
-        echo '<script type="text/javascript"> window.onload = function() {alert("Invalid email address!")};</script>';
-        echo "<p class='errors'>Invalid email address!</p>";
-        exit();
-    } elseif ($regCheck == "usernametaken") {
+    if ($regCheck == "usernametaken") {
         echo '<script type="text/javascript"> window.onload = function() {alert("Username already taken!")};</script>';
-        echo "<p class='errors'>Username already taken!</p>";
         exit();
     } elseif ($regCheck == "success") {
-        echo "<p class='success'>Account created!</p>";
+        echo '<script type="text/javascript"> window.onload = function() {alert("Your account has been created! You my now log in")};</script>';
         exit();
     }
 }
+?>
 
-include('includes/footer.inc.php');
+<?php
+/*
+*
+ * Display errors messages based on the errors set in the URL by getting the login = "errors message"
+ * Using JavaScript inside the php echo scripts I can set an alert box to display the relevant error message
+*/
+if (!isset($_GET['login'])) {
+    exit();
+} else {
+    $regCheck = $_GET['login'];
 
+    if ($regCheck == "empty") {
+        echo '<script type="text/javascript"> window.onload = function() {alert("Please fill in both fields!")};</script>';
+        exit();
+    } elseif ($regCheck == "error") {
+        echo '<script type="text/javascript"> window.onload = function() {alert("Incorrect username or password!")};</script>';
+        exit();
+    }
+}
 ?>

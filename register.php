@@ -1,7 +1,8 @@
-<?php include ('includes/session.inc.php'); ?>
-<?php include('includes/head.inc.php'); ?>
-<body>
-<?php include('nav.inc.php'); ?>
+<?php
+require_once ('includes/session.inc.php');
+include('includes/head.inc.php');
+include('includes/nav.inc.php');
+?>
 
 <section class="container">
         <h1 class="member_title">Mozball VIP Registration</h1>
@@ -29,30 +30,38 @@
             <span id="password_help" class="help"></span><br>
             <button type="submit" name="submit" class="reg_submit">Register</button>
         </form>
-        <?php
-        if (!isset($_GET['register'])) {
-            exit();
-        } else {
-            $regCheck = $_GET['register'];
-
-            if ($regCheck == "empty") {
-                echo "<p class='errors'>You did not fill in all the fields!</p>";
-                exit();
-            } elseif ($regCheck == "invalidemail") {
-                echo "<p class='errors'>Invalid email address!</p>";
-                exit();
-            } elseif ($regCheck == "usernametaken") {
-                echo "<p class='errors'>Username has already been taken!</p>";
-                exit();
-            } elseif ($regCheck == "success") {
-                echo "<p class='success'>Account created!</p>";
-                exit();
-            }
-        }
-
-        ?>
     </div>
 </section><!-- /.container -->
-</body>
 
-<?php include('includes/footer.inc.php'); ?>
+<?php
+/*
+*
+ * Display errors messages based on the errors set in the URL by getting the register = "errors message"
+ * Using JavaScript inside the php echo scripts I can set an alert box to display the relevant error message
+*/
+if (!isset($_GET['register'])) {
+    exit();
+} else {
+    $regCheck = $_GET['register'];
+
+    if ($regCheck == "empty") {
+        echo "<p class='errors'>You did not fill in all the fields!</p>";
+        echo '<script type="text/javascript"> window.onload = function() {alert("You did not fill in all the fields!")};</script>';
+        exit();
+    } elseif ($regCheck == "invalidemail") {
+        echo '<script type="text/javascript"> window.onload = function() {alert("Invalid email address!")};</script>';
+        echo "<p class='errors'>Invalid email address!</p>";
+        exit();
+    } elseif ($regCheck == "usernametaken") {
+        echo '<script type="text/javascript"> window.onload = function() {alert("Username already taken!")};</script>';
+        echo "<p class='errors'>Username already taken!</p>";
+        exit();
+    } elseif ($regCheck == "success") {
+        echo "<p class='success'>Account created!</p>";
+        exit();
+    }
+}
+
+include('includes/footer.inc.php');
+
+?>

@@ -1,6 +1,9 @@
- <?php include('includes/head.inc.php'); ?>
-  <body>
-  <?php include('nav.inc.php'); ?>
+ <?php
+ include('includes/head.inc.php');
+ include('includes/nav.inc.php');
+ ?>
+
+ <body>
   <section class="header_background" style="background-image: url('img/header_img.jpg');">
       <section class="header_title">
           <img src="img/logo-white-large.png" alt="Moz ball rally logo">

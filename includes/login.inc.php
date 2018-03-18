@@ -1,9 +1,9 @@
 <?php
-
-session_start();
+require_once('session.inc.php'); /** Include the session start file */
+require_once('dbc.inc.php');
 
 if (isset($_POST['submit'])) {
-    include 'dbc.inc.php';
+
     $dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
     $user_id = mysqli_real_escape_string($dbc, $_POST['user_id']);

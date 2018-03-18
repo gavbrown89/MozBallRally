@@ -1,7 +1,7 @@
 <?php
-include('includes/session.inc.php');
+require_once('includes/session.inc.php');
 include('includes/head.inc.php');
-include('nav.inc.php');
+include('includes/nav.inc.php');
 ?>
     <section class="header_background" style="background-image: url('img/header_img.jpg');">
         <section class="header_title">

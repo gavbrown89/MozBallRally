@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) { /** a for loop to check if the submit button exis
                          */
                         $hashedpass = password_hash($password, PASSWORD_DEFAULT);
                         /** Insert the user into the database */
-                        echo $sql = "INSERT INTO login_system (user_name, first_name, last_name, user_email, user_pass) VALUES ('$user_name', '$first_name', '$last_name', '$email', '$hashedpass');";
+                        $sql = "INSERT INTO login_system (user_name, first_name, last_name, user_email, user_pass) VALUES ('$user_name', '$first_name', '$last_name', '$email', '$hashedpass');";
                         mysqli_query($dbc, $sql);
                         header("Location: ../register.php?register=success"); /** enter a success message into the url */
                         exit(); /** Stop this script from running */

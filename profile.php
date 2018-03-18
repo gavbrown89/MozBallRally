@@ -1,7 +1,7 @@
 <?php
 require_once('includes/session.inc.php');
 include('includes/head.inc.php');
-include('nav.inc.php');
+include('includes/nav.inc.php');
 ?>
 
 <section class="container">
@@ -13,6 +13,13 @@ include('nav.inc.php');
 
     // Connect to the database
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    if (!isset($_SESSION['u_name'])) {
+
+        echo '<h1 class="member_title">MEMBERS ONLY</h1>';
+
+        echo '<p class="login">Please login to access this page. If you are not a member then please register <a href="register.php">here</a> </p>';
+        exit();
+    }
 
     // Grab the profile data from the database
     if (!isset($_GET['user_id'])) {

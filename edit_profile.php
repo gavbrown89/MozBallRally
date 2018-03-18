@@ -1,10 +1,8 @@
 <?php
 require_once('includes/session.inc.php');
 include('includes/head.inc.php');
-include('nav.inc.php');
-?>
-<?php
-include('includes/dbc.inc.php');
+include('includes/nav.inc.php');
+require_once('includes/dbc.inc.php');
 
 // Make sure the user is logged in before going any further.
 if (!isset($_SESSION['u_name'])) {
@@ -19,7 +17,6 @@ $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if (isset($_POST['submit'])) {
     // Grab the profile data from the POST
-    $user_name = mysqli_real_escape_string($dbc, trim($_POST['user_name']));
     $first_name = mysqli_real_escape_string($dbc, trim($_POST['first_name']));
     $last_name = mysqli_real_escape_string($dbc, trim($_POST['last_name']));
     $email = mysqli_real_escape_string($dbc, trim($_POST['email']));
@@ -28,8 +25,8 @@ if (isset($_POST['submit'])) {
 
     // Update the users data in the database
     if (!$error) {
-        if (!empty($user_name) && !empty($first_name) && !empty($last_name) && !empty($email)) {
-            $query = "UPDATE login_system SET user_name = '$user_name', first_name = '$first_name', last_name = '$last_name', " .
+        if (!empty($first_name) && !empty($last_name) && !empty($email)) {
+            $query = "UPDATE login_system SET first_name = '$first_name', last_name = '$last_name', " .
                 " user_email = '$email' WHERE user_name = '" . $_SESSION['u_name'] . "'";
             mysqli_query($dbc, $query);
 
@@ -46,12 +43,11 @@ if (isset($_POST['submit'])) {
 } // End of check for form submission
 else {
     // Grab the user profile data from the database
-    $query = "SELECT user_name, first_name, last_name, user_email FROM login_system WHERE user_name= '" .                 $_SESSION['u_name'] . "'";
+    $query = "SELECT first_name, last_name, user_email FROM login_system WHERE user_name= '" .                 $_SESSION['u_name'] . "'";
     $data = mysqli_query($dbc, $query);
     $row = mysqli_fetch_array($data);
 
     if ($row != NULL) {
-        $user_name = $row['user_name'];
         $first_name = $row['first_name'];
         $last_name = $row['last_name'];
         $email = $row['user_email'];
@@ -69,12 +65,10 @@ mysqli_close($dbc);
     <section class="container">
         <img src="img/profile.png" class="profile_img"  alt="Profile picture">
         <h1 class="member_title">Your Profile</h1>
-    <section class="form_container">
+    <div class="form_container">
             <form class="register_form" enctype="multipart/form-data" method="post">
                 <fieldset>
                     <legend>Edit your details</legend>
-                    <dt><label for="user_name">User name:</label></dt>
-                    <dd><input type="text" id="user_name" name="user_name" value="<?php if (!empty($user_name)) echo $user_name; ?>" /></dd><br />
                     <dt><label for="first_name">First name:</label></dt>
                     <dd><input type="text" id="first_name" name="first_name" value="<?php if (!empty($first_name)) echo $first_name; ?>" /></dd><br />
                     <dt><label for="last_name">Last Name:</label></dt>
@@ -85,5 +79,4 @@ mysqli_close($dbc);
                 <button type="submit" name="submit" class="reg_submit">Update Profile</button>
             </form>
     </section>
-        </section>
 <?php include("includes/footer.inc.php"); ?>
